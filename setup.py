@@ -1,16 +1,16 @@
 from setuptools import find_packages, setup
 
-required_packages = ["click"]
+required_packages = ["click", "requests", "layeredconfig"]
 
 extras_require = None
 
 setup(
     name="tempo_log",
-    version="0.0.2",
+    version="0.0.3",
     description="logging workload from console",
     author="Łukasz Bołdys",
     author_email="",
-    url="",
+    url="https://github.com/utek/tlog",
     packages=find_packages(),
     include_package_data=True,
     test_suite="tests",
