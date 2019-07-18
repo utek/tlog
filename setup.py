@@ -6,7 +6,7 @@ extras_require = None
 
 setup(
     name="tempo_log",
-    version="0.0.3",
+    version="0.1.0",
     description="logging workload from console",
     author="Łukasz Bołdys",
     author_email="",

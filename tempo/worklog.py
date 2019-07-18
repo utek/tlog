@@ -32,7 +32,18 @@ def logwork(arguments):
     default = getattr(config, "default", None)
     api_key = getattr(default, "API_KEY", None)
     user_id = getattr(default, "USER_ID", None)
-
+    when_to_start = getattr(default, "start_date", "0")
+    when_to_start = int(when_to_start)
+    now = datetime.datetime.now()
+    start_date = now.date()
+    start_time = now.time()
+    if when_to_start == 1:
+        now2 = now - datetime.timedelta(seconds=seconds)
+        start_date = now2.date()
+        start_time = now2.time()
+    elif when_to_start == 2:
+        start_date = now.date()
+        start_time = now.time().min
 
     worklog = {
         "authorAccountId": user_id,
@@ -40,7 +51,8 @@ def logwork(arguments):
         "description": desc,
         "issueKey": issue,
         "remainingEstimateSeconds": None,
-        "startDate": "{}".format(datetime.date.today()),
+        "startDate": "{}".format(start_date),
+        "startTime": f"{start_time:%H:%M:%S}",
         "timeSpentSeconds": seconds,
     }
 
